@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/index.css">
+    <script src="dist/bundle.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Cryptography</h1>
+
+        <section id="tabs">
+            <button type="button" id="caesar" class="tab">Caesar</button>
+            <button type="button" id="vigenere" class="tab">Vigenere</button>
+            <button type="button" id="rail-fence" class="tab">Rail Fence</button>
+            <button type="button" id="play-fair" class="tab">Play Fair</button>
+        </section>
+    </header>
+
+    <main>
+        <section id="crypto-type-input">
+            <input type="hidden" name="text" id="crypto-type">
+        </section>
+        <section id="form-group"></section>
+        <section id="button-group">
+            <button type="button" class="btn btn-encrypt" id="encrypt">Encrypt</button>
+            <button type="button" class="btn btn-decrypt" id="decrypt">Decrypt</button>
+            <button type="button" class="btn btn-clear" id="clear">Clear</button>
+        </section>
+    </main>
+</body>
+
+</html>
