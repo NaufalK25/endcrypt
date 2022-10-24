@@ -4,9 +4,9 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "watch:webpack": "webpack --watch",
-        "watch:ts": "tsc -w",
-        "build": "tsc && webpack",
+        "watch:webpack": "npx webpack --watch",
+        "watch:ts": "npx tsc -w",
+        "build": "npx tsc && npx webpack",
         "postinstall": "npm run build",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
