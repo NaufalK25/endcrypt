@@ -1,30 +1,30 @@
-import Caesar from '../crypto/Caesar';
+import Vigenere from '../crypto/Vigenere';
 
 export default () => {
     const encryptTextInput = <HTMLInputElement>document.getElementById('encrypt-text');
     const decryptTextInput = <HTMLInputElement>document.getElementById('decrypt-text');
-    const offsetInput = <HTMLInputElement>document.getElementById('offset');
+    const keyInput = <HTMLInputElement>document.getElementById('key');
     const encryptButton = <HTMLButtonElement>document.getElementById('encrypt');
     const decryptButton = <HTMLButtonElement>document.getElementById('decrypt');
     const clearButton = <HTMLButtonElement>document.getElementById('clear');
 
-    const caesar = new Caesar();
+    const vigenere = new Vigenere();
 
     encryptButton.addEventListener('click', () => {
-        caesar.setProps(encryptTextInput?.value, +offsetInput?.value);
-        const encryptedText = caesar.encrypt();
+        vigenere.setProps(encryptTextInput?.value, keyInput?.value);
+        const encryptedText = vigenere.encrypt();
         decryptTextInput.value = encryptedText;
     });
 
     decryptButton.addEventListener('click', () => {
-        caesar.setProps(decryptTextInput?.value, +offsetInput?.value);
-        const decryptedText = caesar.decrypt();
+        vigenere.setProps(decryptTextInput?.value, keyInput?.value);
+        const decryptedText = vigenere.decrypt();
         encryptTextInput.value = decryptedText;
     });
 
     clearButton.addEventListener('click', () => {
         encryptTextInput.value = '';
         decryptTextInput.value = '';
-        offsetInput.value = '';
+        keyInput.value = '';
     });
 }

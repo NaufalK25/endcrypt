@@ -4,7 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cryptography</title>
+    <meta name="title" content="Cryptography" />
+    <meta name="description" content="Cryptography" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Cryptography" />
+    <meta property="og:site_name" content="Cryptography" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://cryptongraphics.netlify.app" />
+    <meta property="og:description" content="Cryptography" />
+    <meta name="theme-color" content="#d3d3d3" />
+
     <link rel="stylesheet" href="styles/index.css">
     <script src="dist/bundle.js" defer></script>
 </head>
@@ -25,11 +36,32 @@
         <section id="crypto-type-input">
             <input type="hidden" name="text" id="crypto-type">
         </section>
+
         <section id="form-group"></section>
+
         <section id="button-group">
-            <button type="button" class="btn btn-encrypt" id="encrypt">Encrypt</button>
-            <button type="button" class="btn btn-decrypt" id="decrypt">Decrypt</button>
-            <button type="button" class="btn btn-clear" id="clear">Clear</button>
+            <button type="button" class="btn" id="encrypt">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6" width="24" height=24>
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                </svg>
+            </button>
+
+            <button type="button" class="btn" id="decrypt">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6" width="24" height="24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M13.5 10.5V6.75a4.5 4.5 0 119 0v3.75M3.75 21.75h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H3.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                </svg>
+            </button>
+
+            <button type="button" class="btn" id="clear">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="w-6 h-6" width="24" height="24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
         </section>
     </main>
 </body>

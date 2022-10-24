@@ -51,7 +51,7 @@ header {
 .tab:hover,
 .tab:focus {
     text-decoration: underline;
-    text-decoration-color: lightgrey;
+    text-decoration-color: #d3d3d3;
 }
 
 .tab.active {
@@ -101,11 +101,14 @@ main {
 }
 
 .btn {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
     border: none;
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     font-size: 12pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn:hover,
@@ -113,16 +116,4 @@ main {
     scale: 1.05;
     box-shadow: var(--box-shadow-focus);
     outline: none;
-}
-
-.btn-encrypt {
-    background: orange;
-}
-
-.btn-decrypt {
-    background: aqua;
-}
-
-.btn-clear {
-    background: lightgray;
 }

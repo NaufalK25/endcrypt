@@ -1,11 +1,13 @@
 import caesarCrypto from './process/caesar';
+import vigenereCrypto from './process/vigenere';
 
 const cryptoTypeInput = <HTMLInputElement>document.getElementById('crypto-type');
 
-type CryptoAction = () => void;
+type CryptoViewAction = () => void;
 
-const CRYPTOS: { [key: string]: CryptoAction } = {
-    caesar: caesarCrypto
+const CRYPTOS: { [key: string]: CryptoViewAction } = {
+    caesar: caesarCrypto,
+    vigenere: vigenereCrypto
 };
 
 export default () => {
@@ -13,4 +15,3 @@ export default () => {
 
     CRYPTOS[cryptoType]();
 }
-

@@ -23,13 +23,13 @@ export default class Caesar extends Crypto {
             this.offset += 26 * Math.ceil(Math.abs(this.offset) / 26);
         }
 
-        let encryptedText = this.text.split("").map((char) => {
+        let encryptedText = this.text.split('').map((char) => {
             if (char.match(/[a-z]/i)) {
                 return numToAlpha((alphaToNum(char) + this.offset) % 26);
             }
             return char;
         });
-        return encryptedText.join("");
+        return encryptedText.join('');
     }
 
     decrypt() {
@@ -37,7 +37,7 @@ export default class Caesar extends Crypto {
             this.offset += 26 * Math.ceil(Math.abs(this.offset) / 26);
         }
 
-        let decryptedText = this.text.split("").map((char) => {
+        let decryptedText = this.text.split('').map((char) => {
             if (char.match(/[a-z]/i)) {
                 let num = alphaToNum(char) - this.offset;
 
@@ -49,6 +49,6 @@ export default class Caesar extends Crypto {
             }
             return char;
         });
-        return decryptedText.join("");
+        return decryptedText.join('');
     }
 }
