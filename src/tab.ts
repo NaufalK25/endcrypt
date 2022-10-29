@@ -1,3 +1,4 @@
+import crypto from './crypto';
 import { getActiveTab } from './helper';
 import { ADD_INPUT_ELEMENTS, REMOVE_INPUT_ELEMENTS } from './input';
 import { ADD_BUTTON_ELEMENTS, REMOVE_BUTTON_ELEMENTS } from './button';
@@ -48,6 +49,9 @@ export default () => {
 
             localStorage.setItem('tab', newActiveTab);
             cryptoTypeInput.value = newActiveTab;
+
+            crypto();
         });
     });
+
 }
