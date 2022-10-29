@@ -23,6 +23,8 @@ export default () => {
     if (!isFormExists()) {
         ADD_INPUT_ELEMENTS[activeTab]();
         ADD_BUTTON_ELEMENTS[activeTab]();
+
+        crypto();
     }
 
     const activeTabButton = <HTMLButtonElement>document.getElementById(activeTab);
