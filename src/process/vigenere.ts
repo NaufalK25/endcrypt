@@ -4,9 +4,9 @@ export default () => {
     const encryptTextInput = <HTMLInputElement>document.getElementById('encrypt-text');
     const decryptTextInput = <HTMLInputElement>document.getElementById('decrypt-text');
     const keyInput = <HTMLInputElement>document.getElementById('key');
-    const encryptButton = <HTMLButtonElement>document.getElementById('encrypt');
-    const decryptButton = <HTMLButtonElement>document.getElementById('decrypt');
-    const clearButton = <HTMLButtonElement>document.getElementById('clear');
+    const encryptButton = <HTMLButtonElement>document.getElementById('encrypt-vigenere');
+    const decryptButton = <HTMLButtonElement>document.getElementById('decrypt-vigenere');
+    const clearButton = <HTMLButtonElement>document.getElementById('clear-vigenere');
 
     const vigenere = new Vigenere();
 

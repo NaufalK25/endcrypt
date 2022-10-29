@@ -1,9 +1,10 @@
 const path = require("path");
-const dotenv = require('dotenv');
+const dotenv = require("dotenv");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 dotenv.config();
 
 module.exports = {
-    mode: process.env.NODE_ENV || 'development',
+    mode: process.env.NODE_ENV || "development",
     entry: "./src/index.ts",
     module: {
         rules: [
@@ -12,13 +13,23 @@ module.exports = {
                 use: "ts-loader",
                 exclude: /node_modules/,
             },
+            {
+                test: /\.css$/i,
+                use: ["style-loader", "css-loader"],
+            }
         ],
     },
-    resolve: {
-        extensions: [".tsx", ".ts", ".js"],
-    },
     output: {
-        filename: "bundle.js",
+        filename: "bundle-[contenthash].js",
         path: path.resolve(__dirname, "dist"),
+        clean: true,
     },
+    resolve: {
+        extensions: [".ts", ".css"],
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: "./src/template.html",
+        }),
+    ],
 };

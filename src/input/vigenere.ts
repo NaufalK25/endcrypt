@@ -13,6 +13,12 @@ keyInput.name = 'key';
 keyInput.id = 'key';
 keyInput.placeholder = 'key';
 
+keyInput.addEventListener('keydown', (e) => {
+    if (e.key.match(/[0-9]/)) {
+        e.preventDefault();
+    }
+});
+
 keyInputGroup.append(keyLabel, keyInput);
 
 const encryptTextInputGroup = document.createElement('section');
@@ -50,6 +56,16 @@ export const addInputELement = () => {
 }
 
 export const removeInputElement = () => {
+    encryptTextInput.value = '';
+    decryptTextInput.value = '';
+    keyInput.value = '';
+
+    keyInput.removeEventListener('keydown', (e) => {
+        if (e.key.match(/[0-9]/)) {
+            e.preventDefault();
+        }
+    });
+
     formGroup.removeChild(keyInputGroup);
     formGroup.removeChild(encryptTextInputGroup);
     formGroup.removeChild(decryptTextInputGroup);

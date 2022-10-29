@@ -4,9 +4,9 @@ export default () => {
     const encryptTextInput = <HTMLInputElement>document.getElementById('encrypt-text');
     const decryptTextInput = <HTMLInputElement>document.getElementById('decrypt-text');
     const offsetInput = <HTMLInputElement>document.getElementById('offset');
-    const encryptButton = <HTMLButtonElement>document.getElementById('encrypt');
-    const decryptButton = <HTMLButtonElement>document.getElementById('decrypt');
-    const clearButton = <HTMLButtonElement>document.getElementById('clear');
+    const encryptButton = <HTMLButtonElement>document.getElementById('encrypt-caesar');
+    const decryptButton = <HTMLButtonElement>document.getElementById('decrypt-caesar');
+    const clearButton = <HTMLButtonElement>document.getElementById('clear-caesar');
 
     const caesar = new Caesar();
 

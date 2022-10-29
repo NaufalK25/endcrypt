@@ -8,11 +8,10 @@
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
         "outDir": "./dist",
-        "importHelpers": true
+        "importHelpers": true,
     },
     "exclude": [
         "node_modules",
-        "**/*.spec.ts",
         "**/*.d.ts",
         "webpack.config.js"
     ]

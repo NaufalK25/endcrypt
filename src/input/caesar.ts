@@ -50,6 +50,10 @@ export const addInputELement = () => {
 }
 
 export const removeInputElement = () => {
+    encryptTextInput.value = '';
+    decryptTextInput.value = '';
+    offsetInput.value = '';
+    
     formGroup.removeChild(offsetInputGroup);
     formGroup.removeChild(encryptTextInputGroup);
     formGroup.removeChild(decryptTextInputGroup);

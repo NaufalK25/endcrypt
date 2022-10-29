@@ -18,7 +18,7 @@ export default class Vigenere extends Crypto {
         this.setKey(key);
     }
 
-    encrypt(): string {
+    encrypt() {
         if (this.key.length > this.text.length) {
             this.key = this.key.slice(0, this.text.length);
         }
@@ -53,7 +53,7 @@ export default class Vigenere extends Crypto {
         return encryptedText;
     }
 
-    decrypt(): string {
+    decrypt() {
         return '';
     }
 }
