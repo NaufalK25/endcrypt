@@ -51,7 +51,7 @@ decryptTextInput.placeholder = 'kfa';
 
 decryptTextInputGroup.append(decryptTextLabel, decryptTextInput);
 
-export const addInputELement = () => {
+export const addInputElement = () => {
     formGroup.append(keyInputGroup, encryptTextInputGroup, decryptTextInputGroup);
 };
 

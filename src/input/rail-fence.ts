@@ -1,5 +1,20 @@
 const formGroup = <HTMLDivElement>document.getElementById('form-group');
 
+const keyInputGroup = document.createElement('section');
+keyInputGroup.classList.add('input-group');
+
+const keyLabel = document.createElement('label');
+keyLabel.htmlFor = 'key';
+keyLabel.innerText = 'Key: ';
+
+const keyInput = document.createElement('input');
+keyInput.type = 'number';
+keyInput.name = 'key';
+keyInput.id = 'key';
+keyInput.placeholder = '1';
+
+keyInputGroup.append(keyLabel, keyInput);
+
 const offsetInputGroup = document.createElement('section');
 offsetInputGroup.classList.add('input-group');
 
@@ -41,19 +56,21 @@ const decryptTextInput = document.createElement('input');
 decryptTextInput.type = 'text';
 decryptTextInput.name = 'decrypt-text';
 decryptTextInput.id = 'decrypt-text';
-decryptTextInput.placeholder = 'bcd';
+decryptTextInput.placeholder = 'bac';
 
 decryptTextInputGroup.append(decryptTextLabel, decryptTextInput);
 
 export const addInputElement = () => {
-    formGroup.append(offsetInputGroup, encryptTextInputGroup, decryptTextInputGroup);
+    formGroup.append(keyInputGroup, offsetInputGroup, encryptTextInputGroup, decryptTextInputGroup);
 };
 
 export const removeInputElement = () => {
     encryptTextInput.value = '';
     decryptTextInput.value = '';
+    keyInput.value = '';
     offsetInput.value = '';
 
+    formGroup.removeChild(keyInputGroup);
     formGroup.removeChild(offsetInputGroup);
     formGroup.removeChild(encryptTextInputGroup);
     formGroup.removeChild(decryptTextInputGroup);

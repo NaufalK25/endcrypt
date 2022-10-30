@@ -18,10 +18,14 @@ export default class Caesar extends Crypto {
         this.setOffset(offset);
     }
 
-    encrypt() {
+    filterOffset() {
         if (this.offset < 0) {
             this.offset += 26 * Math.ceil(Math.abs(this.offset) / 26);
         }
+    }
+
+    encrypt() {
+        this.filterOffset();
 
         let encryptedText = this.text.split('').map(char => {
             if (char.match(/[a-z]/i)) {
@@ -33,9 +37,7 @@ export default class Caesar extends Crypto {
     }
 
     decrypt() {
-        if (this.offset < 0) {
-            this.offset += 26 * Math.ceil(Math.abs(this.offset) / 26);
-        }
+        this.filterOffset();
 
         let decryptedText = this.text.split('').map(char => {
             if (char.match(/[a-z]/i)) {
