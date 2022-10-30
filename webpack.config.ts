@@ -1,4 +1,3 @@
-import 'webpack-dev-server';
 import * as path from 'path';
 import * as dotenv from 'dotenv';
 import * as webpack from 'webpack';
