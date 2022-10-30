@@ -46,10 +46,10 @@ header {
     border: none;
     padding: 0.5rem 1rem;
     font-size: 12pt;
+    outline: none;
 }
 
-.tab:hover,
-.tab:focus {
+.tab:is(:hover, :focus) {
     text-decoration: underline;
     text-decoration-color: #d3d3d3;
 }
@@ -111,8 +111,7 @@ main {
     justify-content: center;
 }
 
-.btn:hover,
-.btn:focus {
+.btn:is(:hover, :focus) {
     scale: 1.05;
     box-shadow: var(--box-shadow-focus);
     outline: none;
