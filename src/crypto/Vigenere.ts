@@ -18,7 +18,7 @@ export default class Vigenere extends Crypto {
         this.setKey(key);
     }
 
-    encrypt() {
+    getKey() {
         if (this.key.length > this.text.length) {
             this.key = this.key.slice(0, this.text.length);
         }
@@ -38,6 +38,10 @@ export default class Vigenere extends Crypto {
             tempKey.splice(this.text.length);
             this.key = tempKey.join('');
         }
+    }
+
+    encrypt() {
+        this.getKey();
 
         const encryptedText = this.text
             .split('')
@@ -56,6 +60,21 @@ export default class Vigenere extends Crypto {
     }
 
     decrypt() {
-        return '';
+        this.getKey();
+
+        const decryptedText = this.text
+            .split('')
+            .reduce((acc, char, index) => {
+                if (char.match(/[a-z]/i)) {
+                    const decryptedChar = numToAlpha((alphaToNum(char) - alphaToNum(this.key[index]) + 26) % 26);
+                    acc.push(decryptedChar);
+                } else {
+                    acc.push(char);
+                }
+                return acc;
+            }, [] as string[])
+            .join('');
+
+        return decryptedText;
     }
 }
