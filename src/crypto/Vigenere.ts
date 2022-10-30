@@ -37,18 +37,20 @@ export default class Vigenere extends Crypto {
             }
             tempKey.splice(this.text.length);
             this.key = tempKey.join('');
-
         }
 
-        const encryptedText = this.text.split('').reduce((acc, char, index) => {
-            if (char.match(/[a-z]/i)) {
-                const encryptedChar = numToAlpha((alphaToNum(this.key[index]) + alphaToNum(char)) % 26);
-                acc.push(encryptedChar);
-            } else {
-                acc.push(char);
-            }
-            return acc;
-        }, [] as string[]).join('');
+        const encryptedText = this.text
+            .split('')
+            .reduce((acc, char, index) => {
+                if (char.match(/[a-z]/i)) {
+                    const encryptedChar = numToAlpha((alphaToNum(this.key[index]) + alphaToNum(char)) % 26);
+                    acc.push(encryptedChar);
+                } else {
+                    acc.push(char);
+                }
+                return acc;
+            }, [] as string[])
+            .join('');
 
         return encryptedText;
     }

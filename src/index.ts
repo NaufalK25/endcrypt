@@ -1,4 +1,8 @@
 import './styles/index.css';
 import tab from './tab';
 
-tab();
+const main = () => {
+    tab();
+};
+
+main();

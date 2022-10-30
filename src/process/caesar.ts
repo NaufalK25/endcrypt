@@ -27,4 +27,4 @@ export default () => {
         decryptTextInput.value = '';
         offsetInput.value = '';
     });
-}
+};

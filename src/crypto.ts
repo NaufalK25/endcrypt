@@ -14,4 +14,4 @@ export default () => {
     const cryptoType = cryptoTypeInput.value;
 
     CRYPTOS[cryptoType]();
-}
+};

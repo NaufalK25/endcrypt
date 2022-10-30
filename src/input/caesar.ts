@@ -47,14 +47,14 @@ decryptTextInputGroup.append(decryptTextLabel, decryptTextInput);
 
 export const addInputELement = () => {
     formGroup.append(offsetInputGroup, encryptTextInputGroup, decryptTextInputGroup);
-}
+};
 
 export const removeInputElement = () => {
     encryptTextInput.value = '';
     decryptTextInput.value = '';
     offsetInput.value = '';
-    
+
     formGroup.removeChild(offsetInputGroup);
     formGroup.removeChild(encryptTextInputGroup);
     formGroup.removeChild(decryptTextInputGroup);
-}
+};

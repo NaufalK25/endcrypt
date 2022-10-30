@@ -1,17 +1,13 @@
 import crypto from './crypto';
 import { getActiveTab } from './helper';
 import { ADD_INPUT_ELEMENTS, REMOVE_INPUT_ELEMENTS } from './input';
-import { ADD_BUTTON_ELEMENTS, REMOVE_BUTTON_ELEMENTS } from './button';
 
 const tabs = <HTMLDivElement>document.getElementById('tabs');
 const tabButtons = tabs.querySelectorAll('button');
 const cryptoTypeInput = <HTMLInputElement>document.getElementById('crypto-type');
 const formGroup = <HTMLDivElement>document.getElementById('form-group');
 const buttonGroup = <HTMLDivElement>document.getElementById('button-group');
-
-const isFormExists = () => {
-    return formGroup.hasChildNodes() && buttonGroup.hasChildNodes();
-}
+const buttons = buttonGroup.querySelectorAll('button');
 
 export default () => {
     let activeTab = getActiveTab(localStorage.getItem('tab'));
@@ -20,9 +16,12 @@ export default () => {
         cryptoTypeInput.value = activeTab;
     }
 
-    if (!isFormExists()) {
+    if (!formGroup.hasChildNodes()) {
         ADD_INPUT_ELEMENTS[activeTab]();
-        ADD_BUTTON_ELEMENTS[activeTab]();
+
+        buttons.forEach(button => {
+            button.id = `${button.getAttribute('data-btn-type')}-${activeTab}`;
+        });
 
         crypto();
     }
@@ -30,7 +29,7 @@ export default () => {
     const activeTabButton = <HTMLButtonElement>document.getElementById(activeTab);
     activeTabButton.classList.add('active');
 
-    tabButtons.forEach((button) => {
+    tabButtons.forEach(button => {
         button.addEventListener('click', () => {
             const newActiveTab = button.id;
 
@@ -41,10 +40,12 @@ export default () => {
             const oldActiveTab = getActiveTab(activeTab);
             if (oldActiveTab !== newActiveTab) {
                 REMOVE_INPUT_ELEMENTS[oldActiveTab]();
-                REMOVE_BUTTON_ELEMENTS[oldActiveTab]();
 
                 ADD_INPUT_ELEMENTS[newActiveTab]();
-                ADD_BUTTON_ELEMENTS[newActiveTab]();
+
+                buttons.forEach(button => {
+                    button.id = `${button.getAttribute('data-btn-type')}-${newActiveTab}`;
+                });
 
                 activeTab = newActiveTab;
             }
@@ -55,5 +56,4 @@ export default () => {
             crypto();
         });
     });
-
-}
+};
