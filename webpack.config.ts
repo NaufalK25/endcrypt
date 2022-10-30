@@ -6,7 +6,7 @@ dotenv.config();
 
 const config: webpack.Configuration = {
     entry: './src/index.ts',
-    mode: process.env.NODE_ENV ? (process.env.NODE_ENV === 'production' ? 'production' : 'development') : 'development',
+    mode: process.env.WEBPACK_MODE ? (process.env.WEBPACK_MODE === 'production' ? 'production' : 'development') : 'development',
     output: {
         charset: true,
         clean: true,
