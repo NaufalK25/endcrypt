@@ -4,9 +4,14 @@ import * as webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 dotenv.config();
 
+const getWebpackMode = () => {
+    const mode = process.env.WEBPACK_MODE;
+    return mode ? (mode === 'production' ? 'production' : 'development') : 'development';
+}
+
 const config: webpack.Configuration = {
     entry: './src/index.ts',
-    mode: process.env.WEBPACK_MODE ? (process.env.WEBPACK_MODE === 'production' ? 'production' : 'development') : 'development',
+    mode: getWebpackMode(),
     output: {
         charset: true,
         clean: true,

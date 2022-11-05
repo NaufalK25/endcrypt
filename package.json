@@ -1,15 +1,19 @@
 {
     "name": "cryptongraphy",
     "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
+    "description": "A collection of cryptography encryptions and decryptions.",
+    "main": "dist/bundle-[contenthash].js",
     "scripts": {
         "watch:webpack": "npx webpack --watch",
         "watch:ts": "npx tsc -w",
         "build": "npx tsc && npx webpack",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "keywords": [],
+    "keywords": [
+        "cryptography",
+        "encryption",
+        "decryption"
+    ],
     "author": "Muhammad Naufal Kateni",
     "license": "ISC",
     "devDependencies": {
