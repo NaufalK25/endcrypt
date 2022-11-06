@@ -26,6 +26,7 @@ export default () => {
     clearButton.addEventListener('click', () => {
         encryptTextInput.value = '';
         decryptTextInput.value = '';
+        keyInput.value = '';
         offsetInput.value = '';
     });
 };

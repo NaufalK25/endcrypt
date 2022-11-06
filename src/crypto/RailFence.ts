@@ -1,5 +1,4 @@
 import Crypto from './Crypto';
-import { alphaToNum, numToAlpha } from '../helper';
 
 export default class RailFence extends Crypto {
     protected key: number;

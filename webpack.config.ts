@@ -32,7 +32,7 @@ const config: webpack.Configuration = {
         ]
     },
     resolve: {
-        extensions: ['.ts', '.css']
+        extensions: ['.ts', '.css', '.html']
     },
     plugins: [
         new HtmlWebpackPlugin({
