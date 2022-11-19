@@ -1,6 +1,7 @@
 import * as path from 'path';
 import * as dotenv from 'dotenv';
 import * as webpack from 'webpack';
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 dotenv.config();
@@ -22,7 +23,7 @@ const config: webpack.Configuration = {
     module: {
         rules: [
             {
-                test: /\.tsx?$/,
+                test: /\.ts$/,
                 use: 'ts-loader',
                 exclude: /node_modules/
             },
@@ -30,6 +31,11 @@ const config: webpack.Configuration = {
                 test: /\.css$/i,
                 use: [MiniCssExtractPlugin.loader, 'css-loader']
             }
+        ]
+    },
+    optimization: {
+        minimizer: [
+            new CssMinimizerPlugin()
         ]
     },
     resolve: {
