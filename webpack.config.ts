@@ -2,12 +2,13 @@ import * as path from 'path';
 import * as dotenv from 'dotenv';
 import * as webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 dotenv.config();
 
 const getWebpackMode = () => {
     const mode = process.env.WEBPACK_MODE;
     return mode ? (mode === 'production' ? 'production' : 'development') : 'development';
-}
+};
 
 const config: webpack.Configuration = {
     entry: './src/index.ts',
@@ -27,7 +28,7 @@ const config: webpack.Configuration = {
             },
             {
                 test: /\.css$/i,
-                use: ['style-loader', 'css-loader']
+                use: [MiniCssExtractPlugin.loader, 'css-loader']
             }
         ]
     },
@@ -35,6 +36,9 @@ const config: webpack.Configuration = {
         extensions: ['.ts', '.css', '.html']
     },
     plugins: [
+        new MiniCssExtractPlugin({
+            filename: 'main-[contenthash].css'
+        }),
         new HtmlWebpackPlugin({
             template: './src/template.html'
         })
