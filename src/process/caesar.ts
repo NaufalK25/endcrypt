@@ -11,14 +11,12 @@ export default () => {
     const caesar = new Caesar();
 
     encryptButton.addEventListener('click', () => {
-        caesar.setProps(encryptTextInput?.value, +offsetInput?.value);
-        const encryptedText = caesar.encrypt();
+        const encryptedText = caesar.setProps(encryptTextInput?.value, +offsetInput?.value).encrypt();
         decryptTextInput.value = encryptedText;
     });
 
-    decryptButton.addEventListener('click', () => {
-        caesar.setProps(decryptTextInput?.value, +offsetInput?.value);
-        const decryptedText = caesar.decrypt();
+    decryptButton.addEventListener('click', () => {;
+        const decryptedText = caesar.setProps(decryptTextInput?.value, +offsetInput?.value).decrypt();
         encryptTextInput.value = decryptedText;
     });
 

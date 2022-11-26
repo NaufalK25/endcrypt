@@ -11,11 +11,12 @@ export default class Caesar extends Crypto {
 
     setOffset(offset: number) {
         this.offset = offset;
+        return this;
     }
 
     setProps(text: string, offset: number) {
-        this.setText(text);
-        this.setOffset(offset);
+        this.setText(text).setOffset(offset);
+        return this;
     }
 
     filterOffset() {
@@ -27,30 +28,34 @@ export default class Caesar extends Crypto {
     encrypt() {
         this.filterOffset();
 
-        let encryptedText = this.text.split('').map(char => {
-            if (char.match(/[a-z]/i)) {
-                return numToAlpha((alphaToNum(char) + this.offset) % 26);
-            }
-            return char;
-        });
-        return encryptedText.join('');
+        return this.text
+            .split('')
+            .map(char => {
+                if (char.match(/[a-z]/i)) {
+                    return numToAlpha((alphaToNum(char) + this.offset) % 26);
+                }
+                return char;
+            })
+            .join('');
     }
 
     decrypt() {
         this.filterOffset();
 
-        let decryptedText = this.text.split('').map(char => {
-            if (char.match(/[a-z]/i)) {
-                let num = alphaToNum(char) - this.offset;
+        return this.text
+            .split('')
+            .map(char => {
+                if (char.match(/[a-z]/i)) {
+                    let num = alphaToNum(char) - this.offset;
 
-                while (num < 0) {
-                    num += 26;
+                    while (num < 0) {
+                        num += 26;
+                    }
+
+                    return numToAlpha(num % 26);
                 }
-
-                return numToAlpha(num % 26);
-            }
-            return char;
-        });
-        return decryptedText.join('');
+                return char;
+            })
+            .join('');
     }
 }

@@ -14,8 +14,8 @@ export default class Vigenere extends Crypto {
     }
 
     setProps(text: string, key: string) {
-        this.setText(text);
-        this.setKey(key);
+        this.setText(text).setKey(key);
+        return this;
     }
 
     filterKey() {
@@ -40,41 +40,28 @@ export default class Vigenere extends Crypto {
         }
     }
 
-    encrypt() {
+    crypto(operation: 'encrypt' | 'decrypt') {
         this.filterKey();
 
-        const encryptedText = this.text
+        return this.text
             .split('')
             .reduce((acc, char, index) => {
                 if (char.match(/[a-z]/i)) {
-                    const encryptedChar = numToAlpha((alphaToNum(this.key[index]) + alphaToNum(char)) % 26);
-                    acc.push(encryptedChar);
+                    const resChar = numToAlpha((operation === 'encrypt' ? alphaToNum(this.key[index]) + alphaToNum(char) : alphaToNum(char) - alphaToNum(this.key[index]) + 26) % 26);
+                    acc.push(resChar);
                 } else {
                     acc.push(char);
                 }
                 return acc;
             }, [] as string[])
             .join('');
+    }
 
-        return encryptedText;
+    encrypt() {
+        return this.crypto('encrypt');
     }
 
     decrypt() {
-        this.filterKey();
-
-        const decryptedText = this.text
-            .split('')
-            .reduce((acc, char, index) => {
-                if (char.match(/[a-z]/i)) {
-                    const decryptedChar = numToAlpha((alphaToNum(char) - alphaToNum(this.key[index]) + 26) % 26);
-                    acc.push(decryptedChar);
-                } else {
-                    acc.push(char);
-                }
-                return acc;
-            }, [] as string[])
-            .join('');
-
-        return decryptedText;
+        return this.crypto('decrypt');
     }
 }

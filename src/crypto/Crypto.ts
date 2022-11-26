@@ -7,6 +7,7 @@ export default abstract class Crypto {
 
     setText(text: string) {
         this.text = text;
+        return this;
     }
 
     abstract encrypt(): string;
