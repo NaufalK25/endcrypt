@@ -8,7 +8,7 @@ dotenv.config();
 
 const getWebpackMode = () => {
     const mode = process.env.WEBPACK_MODE;
-    return mode ? (mode === 'production' ? 'production' : 'development') : 'development';
+    return mode ? (mode === 'production' ? 'production' : 'development') : 'production';
 };
 
 const config: webpack.Configuration = {
