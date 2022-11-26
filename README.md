@@ -1,8 +1,8 @@
-# Cryptongraphy
+# Endcrypt
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/03d4b625-5eff-4f54-b79b-0f5e14b50a6f/deploy-status)](https://app.netlify.com/sites/cryptongraphy/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/03d4b625-5eff-4f54-b79b-0f5e14b50a6f/deploy-status)](https://endcrypt.netlify.app/)
 
-Cryptongraphy is a web application that allows users to encrypt and decrypt messages using a variety of different ciphers. The application is built using [TypeScript](https://www.typescriptlang.org/) and [Webpack](https://webpack.js.org/).
+Endcrypt is a web application that allows users to encrypt and decrypt messages using a variety of different ciphers. The application is built using [TypeScript](https://www.typescriptlang.org/) and [Webpack](https://webpack.js.org/).
 
 ## Prerequisites
 
