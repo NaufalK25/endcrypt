@@ -40,7 +40,6 @@ export default () => {
             const oldActiveTab = getActiveTab(activeTab);
             if (oldActiveTab !== newActiveTab) {
                 REMOVE_INPUT_ELEMENTS[oldActiveTab]();
-
                 ADD_INPUT_ELEMENTS[newActiveTab]();
 
                 buttons.forEach(button => {
