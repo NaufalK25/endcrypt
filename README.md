@@ -7,13 +7,16 @@ Endcrypt is a web application that allows users to encrypt and decrypt messages 
 ## Prerequisites
 
 1. [Node.js](https://nodejs.org/en/)
+
     ```bash
     node -v
     npm -v
     ```
+
 2. [TypeScript](https://www.typescriptlang.org/)
 3. [Webpack](https://webpack.js.org/)
 4. [Git](https://git-scm.com/)
+
     ```bash
     git -v
     ```
