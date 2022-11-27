@@ -7,9 +7,16 @@ Endcrypt is a web application that allows users to encrypt and decrypt messages 
 ## Prerequisites
 
 1. [Node.js](https://nodejs.org/en/)
+    ```bash
+    node -v
+    npm -v
+    ```
 2. [TypeScript](https://www.typescriptlang.org/)
 3. [Webpack](https://webpack.js.org/)
 4. [Git](https://git-scm.com/)
+    ```bash
+    git -v
+    ```
 
 ## Installation
 
@@ -26,12 +33,15 @@ Endcrypt is a web application that allows users to encrypt and decrypt messages 
     ```
 
 3. Build the application
+
     ```bash
     npm run build
     ```
+
+4. Run the application
 
 ## Algorithms
 
 1. [Caesar Cipher](https://en.wikipedia.org/wiki/Caesar_cipher)
 2. [Vigenère Cipher](https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher)
-3. [Rail Fence Cipher](https://en.wikipedia.org/wiki/Rail_fence_cipher)
+3. [RC4 Cipher](https://en.wikipedia.org/wiki/RC4)

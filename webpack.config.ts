@@ -1,14 +1,19 @@
-import * as path from 'path';
-import * as dotenv from 'dotenv';
-import * as webpack from 'webpack';
+import path from 'path';
+import dotenv from 'dotenv';
+import webpack from 'webpack';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 dotenv.config();
 
+enum ENV {
+    DEV = 'development',
+    PROD = 'production'
+}
+
 const getWebpackMode = () => {
     const mode = process.env.WEBPACK_MODE;
-    return mode ? (mode === 'production' ? 'production' : 'development') : 'production';
+    return mode ? (mode === ENV.PROD ? ENV.PROD : ENV.DEV) : ENV.DEV;
 };
 
 const config: webpack.Configuration = {
@@ -34,9 +39,7 @@ const config: webpack.Configuration = {
         ]
     },
     optimization: {
-        minimizer: [
-            new CssMinimizerPlugin()
-        ]
+        minimizer: [new CssMinimizerPlugin()]
     },
     resolve: {
         extensions: ['.ts', '.css', '.html']
