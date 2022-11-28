@@ -3,6 +3,7 @@ import { alphaToNum, numToAlpha } from '../helper';
 
 export default class Vigenere extends Crypto {
     protected key: string;
+    public static MAX_KEY_LENGTH = 26;
 
     constructor(text: string = '', key: string = '') {
         super(text);
@@ -48,7 +49,7 @@ export default class Vigenere extends Crypto {
             .split('')
             .reduce((acc, char, index) => {
                 if (char.match(/[a-z]/i)) {
-                    const resChar = numToAlpha((operation === 'encrypt' ? alphaToNum(this.key[index]) + alphaToNum(char) : alphaToNum(char) - alphaToNum(this.key[index]) + 26) % 26);
+                    const resChar = numToAlpha((operation === 'encrypt' ? alphaToNum(this.key[index]) + alphaToNum(char) : alphaToNum(char) - alphaToNum(this.key[index]) + Vigenere.MAX_KEY_LENGTH) % Vigenere.MAX_KEY_LENGTH);
                     acc.push(resChar);
                 } else {
                     acc.push(char);

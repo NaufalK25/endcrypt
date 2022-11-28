@@ -2,6 +2,7 @@ import Crypto from './Crypto';
 
 export default class RC4 extends Crypto {
     protected key: string;
+    public static MAX_KEY_LENGTH = 256;
 
     constructor(text: string = '', key: string = '') {
         super(text);
@@ -19,30 +20,32 @@ export default class RC4 extends Crypto {
     }
 
     encrypt() {
-        let s = [];
-        let j = 0;
-        let x;
+        const state: number[] = [];
+        let idxKey = 0;
+        let idxState: number;
         let res = '';
-        for (let i = 0; i < 256; i++) {
-            s[i] = i;
+
+        for (let i = 0; i < RC4.MAX_KEY_LENGTH; i++) {
+            state[i] = i;
         }
 
-        for (let i = 0; i < 256; i++) {
-            j = (j + s[i] + this.key.charCodeAt(i % this.key.length)) % 256;
-            x = s[i];
-            s[i] = s[j];
-            s[j] = x;
+        for (let i = 0; i < RC4.MAX_KEY_LENGTH; i++) {
+            idxKey = (idxKey + state[i] + this.key.charCodeAt(i % this.key.length)) % RC4.MAX_KEY_LENGTH;
+            idxState = state[i];
+            state[i] = state[idxKey];
+            state[idxKey] = idxState;
         }
 
         let i = 0;
         for (let y = 0; y < this.text.length; y++) {
-            i = (i + 1) % 256;
-            j = (j + s[i]) % 256;
-            x = s[i];
-            s[i] = s[j];
-            s[j] = x;
-            res += String.fromCharCode(this.text.charCodeAt(y) ^ s[(s[i] + s[j]) % 256]);
+            i = (i + 1) % RC4.MAX_KEY_LENGTH;
+            idxKey = (idxKey + state[i]) % RC4.MAX_KEY_LENGTH;
+            idxState = state[i];
+            state[i] = state[idxKey];
+            state[idxKey] = idxState;
+            res += String.fromCharCode(this.text.charCodeAt(y) ^ state[(state[i] + state[idxKey]) % RC4.MAX_KEY_LENGTH]);
         }
+
         return res;
     }
 

@@ -3,6 +3,7 @@ import { alphaToNum, numToAlpha } from '../helper';
 
 export default class Caesar extends Crypto {
     protected offset: number;
+    public static MAX_KEY_LENGTH = 26;
 
     constructor(text: string = '', offset: number = 0) {
         super(text);
@@ -21,7 +22,7 @@ export default class Caesar extends Crypto {
 
     filterOffset() {
         if (this.offset < 0) {
-            this.offset += 26 * Math.ceil(Math.abs(this.offset) / 26);
+            this.offset += Caesar.MAX_KEY_LENGTH * Math.ceil(Math.abs(this.offset) / Caesar.MAX_KEY_LENGTH);
         }
     }
 
@@ -32,7 +33,7 @@ export default class Caesar extends Crypto {
             .split('')
             .map(char => {
                 if (char.match(/[a-z]/i)) {
-                    return numToAlpha((alphaToNum(char) + this.offset) % 26);
+                    return numToAlpha((alphaToNum(char) + this.offset) % Caesar.MAX_KEY_LENGTH);
                 }
                 return char;
             })
@@ -49,10 +50,10 @@ export default class Caesar extends Crypto {
                     let num = alphaToNum(char) - this.offset;
 
                     while (num < 0) {
-                        num += 26;
+                        num += Caesar.MAX_KEY_LENGTH;
                     }
 
-                    return numToAlpha(num % 26);
+                    return numToAlpha(num % Caesar.MAX_KEY_LENGTH);
                 }
                 return char;
             })
