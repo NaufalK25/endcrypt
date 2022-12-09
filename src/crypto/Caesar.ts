@@ -16,8 +16,7 @@ export default class Caesar extends Crypto {
     }
 
     setProps(text: string, offset: number) {
-        this.setText(text).setOffset(offset);
-        return this;
+        return this.setText(text).setOffset(offset);
     }
 
     filterOffset() {

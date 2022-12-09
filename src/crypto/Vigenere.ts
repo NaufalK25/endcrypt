@@ -16,8 +16,7 @@ export default class Vigenere extends Crypto {
     }
 
     setProps(text: string, key: string) {
-        this.setText(text).setKey(key);
-        return this;
+        return this.setText(text).setKey(key);
     }
 
     filterKey() {
